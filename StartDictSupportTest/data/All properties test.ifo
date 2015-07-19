@@ -1,0 +1,15 @@
+StarDict's dict test ifo file
+version=3.2.1
+bookname=Test (De-Ru)
+wordcount=35
+synwordcount=98
+idxfilesize=67
+idxoffsetbits=64
+
+sametypesequence=xg
+
+date=2008.03.12
+author=me
+email=a@b.c
+website=a.b.org
+description=test ifo file
