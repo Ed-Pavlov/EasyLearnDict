@@ -2,9 +2,7 @@ import java.io.DataInputStream
 import java.io.File
 import java.util.*
 
-data class Idx(val word : String, val offset : Long, val size : Long )
-
-fun createIdx(filePath : String, ifo : Ifo) : HashMap<String, Pair<Long, Long>>{
+fun createIdx(filePath : String, ifo : Ifo) : HashMap<String, Pair<Long, Long>>{filePath
   val file = File(filePath)
   val stream = DataInputStream(file.inputStream())
 
@@ -26,3 +24,5 @@ fun createIdx(filePath : String, ifo : Ifo) : HashMap<String, Pair<Long, Long>>{
   }
   return map;
 }
+
+data class Idx(val word : String, val offset : Long, val size : Long )

@@ -1,4 +1,4 @@
-enum class BitCount public constructor()
+enum class BitCount
 {
   x32,
   x64,
