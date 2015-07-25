@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Common/Common.iml" filepath="$PROJECT_DIR$/Common/Common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EasyLearnDictionary/EasyLearnDictionary.iml" filepath="$PROJECT_DIR$/EasyLearnDictionary/EasyLearnDictionary.iml" />
       <module fileurl="file://$PROJECT_DIR$/StartDictSupport/StartDictSupport.iml" filepath="$PROJECT_DIR$/StartDictSupport/StartDictSupport.iml" />
       <module fileurl="file://$PROJECT_DIR$/StartDictSupportTest/StartDictSupportTest.iml" filepath="$PROJECT_DIR$/StartDictSupportTest/StartDictSupportTest.iml" />
     </modules>
