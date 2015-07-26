@@ -1,4 +1,4 @@
-package pavlov.ed.EasyLearnDictionary
+package pavlov.ed.`layout-v21`
 
 import android.app.Activity
 import android.os.Bundle
@@ -19,11 +19,7 @@ class MainActivity : Activity(){
         orientation = LinearLayout.HORIZONTAL
 
         textView("Top toolbar").layoutParams(width = matchParent)
-        button("Dic"){
-          onClick {    }
-        }
-        .layoutParams{alignParentRight()}
-
+        button("Dic").layoutParams{alignParentRight()}
 //        editText("Enter a word").layoutParams(width = )
       }
 
