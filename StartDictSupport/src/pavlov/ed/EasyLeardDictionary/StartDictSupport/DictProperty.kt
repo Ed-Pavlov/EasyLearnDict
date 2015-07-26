@@ -1,3 +1,5 @@
+package pavlov.ed.EasyLeardDictionary.StartDictSupport
+
 enum class DictProperty() {
   companion object {
     val version = "version"

@@ -1,14 +1,14 @@
-import com.sun.javafx.collections.MappingChange
-import org.junit.Assert.assertThat
-import org.junit.Test
+import org.hamcrest.MatcherAssert.*
 import org.hamcrest.core.Is.`is`
-import java.util
-import java.util.*
+import org.testng.annotations.Test
+import pavlov.ed.EasyLeardDictionary.StartDictSupport.*
 
 class CreateIfoTest {
+  val basePath = "Test\\data"
+
   Test
   public fun AllPropertiesTest(){
-    val ifo = Ifo.create("data\\All properties test.ifo")
+    val ifo = Ifo.create(basePath + "\\All properties test.ifo")
 
     assertThat("version", ifo.version, `is`(Version(3, 2, 1)))
     assertThat("wordCount", ifo.wordCount, `is`(35L))
@@ -19,7 +19,7 @@ class CreateIfoTest {
 
   Test
   public fun BigNumberTest(){
-    val ifo = Ifo.create("data\\big numbers test.ifo")
+    val ifo = Ifo.create(basePath + "\\big numbers test.ifo")
 
     assertThat("version is 2.4.2", ifo.version, `is`(Version(2, 4, 2)))
     assertThat("dictDataType is 'xtM'", ifo.dictDataType, `is`(charArrayOf('x', 't', 'M')))

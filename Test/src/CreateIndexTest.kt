@@ -1,15 +1,15 @@
-import collection.Cursor
-import collection.PatriciaTrie
-import collection.StringKeyAnalyzer
-import org.junit.Assert
-import org.junit.Test
+import java.util.*
 import java.io.DataInputStream
 import java.io.File
+import android.util.Pair
 import org.hamcrest.core.Is
-import java.util.*
+import org.hamcrest.MatcherAssert
+import org.testng.annotations.Test
+import collection.PatriciaTrie
+import pavlov.ed.EasyLeardDictionary.StartDictSupport.*
 
 class CreateIndexTest{
-  val name = "data\\UniversalDeRu"
+  val name = "Test\\data\\UniversalDeRu"
 
   Test
   fun IndexShouldReturnRightData(){
@@ -24,14 +24,14 @@ class CreateIndexTest{
     // --assert
     val index = createExpected(name + ".idx", ifo)
         for((word, expected) in index)
-          Assert.assertThat(word, trie.get(word), Is.`is`(expected))
+          MatcherAssert.assertThat(word, trie.get(word), Is.`is`(expected))
   }
 
-  private fun createExpected(filePath : String, ifo : Ifo) : HashMap<String, Pair<Long, Long>> {
+  private fun createExpected(filePath : String, ifo : Ifo) : HashMap<String, WordDataReference> {
     val file = File(filePath)
     val stream = DataInputStream(file.inputStream())
 
-    val map = HashMap<String, Pair<Long, Long>>()
+    val map = HashMap<String, WordDataReference>()
     while(stream.available() > 0){
       val buffer = ByteArray(257)
       var byte : Byte;
@@ -47,7 +47,7 @@ class CreateIndexTest{
       val wordOffset = if (ifo.idxOffsetBits == BitCount.x64) stream.readLong() else stream.readInt().toLong()
       if(map.containsKey(word))
         throw Exception(word)
-      map[word] = Pair(wordOffset, stream.readInt().toLong())
+      map[word] = WordDataReference(wordOffset, stream.readInt().toLong())
     }
     return map;
   }

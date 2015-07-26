@@ -1,3 +1,5 @@
+package pavlov.ed.EasyLeardDictionary.StartDictSupport;
+
 /*
  * $Header: /cvshome/build/org.osgi.framework/src/org/osgi/framework/Version.java,v 1.17 2007/02/20 00:07:22 hargrave Exp $
  *

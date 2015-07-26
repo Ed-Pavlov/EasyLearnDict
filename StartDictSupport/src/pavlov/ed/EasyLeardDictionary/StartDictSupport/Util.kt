@@ -1,3 +1,5 @@
+package pavlov.ed.EasyLeardDictionary.StartDictSupport
+
 import java.io.InputStream
 import java.util.*
 

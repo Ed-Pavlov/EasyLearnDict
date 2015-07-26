@@ -20,7 +20,9 @@ class MainActivity : Activity(){
 
         textView("Top toolbar").layoutParams(width = matchParent)
         button("Dic"){
-          onClick {    }
+          onClick {
+//            val ifo = Ifo.Create()
+          }
         }
         .layoutParams{alignParentRight()}
 

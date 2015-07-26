@@ -1,10 +1,12 @@
-import org.joda.time.DateTime
-import org.joda.time.format.DateTimeFormat
-import org.joda.time.format.DateTimeFormatter
+package pavlov.ed.EasyLeardDictionary.StartDictSupport
+
 import java.io.File
+import java.io.FileReader
+import java.text.DateFormat
+import java.text.SimpleDateFormat
 import java.util.*
 
-data class Ifo(val version: Version,
+public data class Ifo(val version: Version,
                val name: String,
                val wordCount: Long,
                val synWordCount: Int?,
@@ -12,7 +14,7 @@ data class Ifo(val version: Version,
                val idxOffsetBits: BitCount,
 
                val dictDataType: CharArray?,
-               val date: DateTime,
+               val date: Date,
                val author: String?,
                val email: String?,
                val website: String?,
@@ -21,9 +23,9 @@ data class Ifo(val version: Version,
 
   companion object {
     fun create(filePath: String): Ifo {
-      val ifoFile = File(filePath)
+      val ifoFile = FileReader(File(filePath))
 
-      val map: Map<String, String> = ifoFile.reader().useLines {
+      val map: Map<String, String> = ifoFile.useLines {
         it.filter { it.contains('=') }.map { it.split('=') }.toMap({ it[0] }, { it[1] })
       }
 
@@ -38,7 +40,7 @@ data class Ifo(val version: Version,
         map[DictProperty.idxFileSize]!!.toLong(),
         bitCount,
         map[DictProperty.sameTypeSequence]?.toCharArray(),
-        DateTimeFormat.forPattern("yyyy.mm.dd") parseDateTime map[DictProperty.date],
+        SimpleDateFormat("yyyy.mm.dd").parse(map[DictProperty.date]),
         map[DictProperty.author],
         map[DictProperty.email],
         map[DictProperty.website],
